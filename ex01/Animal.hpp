@@ -35,7 +35,6 @@ public:
 	// Operator overload
 	Animal &operator=(const Animal &copy);
 
-	// Pure virtual function
 	virtual void makeSound();
 	virtual std::string getType();
 
