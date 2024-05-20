@@ -13,8 +13,16 @@
 #ifndef __ANIMAL_HPP__
 #define __ANIMAL_HPP__
 
-#include "string"
-#include "iostream"
+#include <string>
+#include <iostream>
+#include <iomanip>
+
+# define BROWN "\033[1;33m"
+# define RED "\033[1;31m"
+# define GREEN "\033[1;32m"
+# define BLUE "\033[1;34m"
+# define CYAN "\033[1;36m"
+# define RESET "\033[0m"
 
 class Animal
 {
@@ -27,7 +35,7 @@ public:
 	// Operator overload
 	Animal &operator=(const Animal &copy);
 
-
+	// Pure virtual function
 	virtual void makeSound();
 	virtual std::string getType();
 

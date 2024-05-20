@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 12:46:25 by agan              #+#    #+#             */
-/*   Updated: 2024/05/17 12:46:27 by agan             ###   ########.fr       */
+/*   Created: 2024/05/17 14:44:50 by agan              #+#    #+#             */
+/*   Updated: 2024/05/17 14:44:51 by agan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CAT_HPP__
-#define __CAT_HPP__
+#ifndef __WRONGANIMAL_HPP__
+#define __WRONGANIMAL_HPP__
 
-#include "Animal.hpp"
+#include <string>
+#include <iostream>
+#include <iomanip>
 
-class Cat : public Animal
+class WrongAnimal
 {
 public:
 	// Constructor and destructor
-	Cat();
-	Cat(const Cat &copy);
-	~Cat();
+	WrongAnimal();
+	WrongAnimal(const WrongAnimal &copy);
+	virtual ~WrongAnimal();
 
 	// Operator overload
-	Cat &operator=(const Cat &copy);
+	WrongAnimal &operator=(const WrongAnimal &copy);
 
+	// Pure virtual function
 	void makeSound();
 	std::string getType();
+
+protected:
+	std::string type;
 };
 
 #endif

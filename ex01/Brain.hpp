@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 12:46:25 by agan              #+#    #+#             */
-/*   Updated: 2024/05/17 12:46:27 by agan             ###   ########.fr       */
+/*   Created: 2024/05/17 15:05:35 by agan              #+#    #+#             */
+/*   Updated: 2024/05/17 15:05:36 by agan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CAT_HPP__
-#define __CAT_HPP__
+#ifndef __BRAIN_HPP__
+#define __BRAIN_HPP__
 
-#include "Animal.hpp"
+#include <string>
+#include <iostream>
+#include <iomanip>
 
-class Cat : public Animal
+#define IDEAS_COUNT 2
+#define CHECKER_WIDTH 22
+
+/* Brain class - array of 100 std::string ideas */
+class Brain
 {
+private:
+	std::string *ideas;
+
 public:
-	// Constructor and destructor
-	Cat();
-	Cat(const Cat &copy);
-	~Cat();
+	Brain();
+	Brain(const Brain &copy);
+	~Brain();
 
-	// Operator overload
-	Cat &operator=(const Cat &copy);
-
-	void makeSound();
-	std::string getType();
+	Brain &operator=(const Brain &copy);
+	void printIdeas();
+	void brainCheck(const Brain &copy);
 };
 
 #endif

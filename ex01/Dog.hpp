@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 12:46:25 by agan              #+#    #+#             */
-/*   Updated: 2024/05/17 12:46:27 by agan             ###   ########.fr       */
+/*   Created: 2024/05/17 12:46:22 by agan              #+#    #+#             */
+/*   Updated: 2024/05/17 12:46:23 by agan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CAT_HPP__
-#define __CAT_HPP__
+#ifndef __DOG_HPP__
+#define __DOG_HPP__
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Cat : public Animal
+class Dog : public Animal
 {
 public:
 	// Constructor and destructor
-	Cat();
-	Cat(const Cat &copy);
-	~Cat();
+	Dog();
+	Dog(const Dog &copy);
+	~Dog();
 
 	// Operator overload
-	Cat &operator=(const Cat &copy);
+	Dog &operator=(const Dog &copy);
 
 	void makeSound();
 	std::string getType();
+	void memCheck(const Dog &copy);
+
+private:
+	Brain *brain;
 };
 
 #endif

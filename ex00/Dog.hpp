@@ -26,7 +26,6 @@ public:
 	// Operator overload
 	Dog &operator=(const Dog &copy);
 
-	// Implementation of pure virtual function
 	void makeSound();
 	std::string getType();
 };

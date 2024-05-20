@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 12:46:25 by agan              #+#    #+#             */
-/*   Updated: 2024/05/17 12:46:27 by agan             ###   ########.fr       */
+/*   Created: 2024/05/17 14:44:41 by agan              #+#    #+#             */
+/*   Updated: 2024/05/17 14:44:44 by agan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __CAT_HPP__
-#define __CAT_HPP__
+#ifndef __WRONGCAT_HPP__
+#define __WRONGCAT_HPP__
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat : public Animal
+class WrongCat : public WrongAnimal
 {
 public:
 	// Constructor and destructor
-	Cat();
-	Cat(const Cat &copy);
-	~Cat();
+	WrongCat();
+	WrongCat(const WrongCat &copy);
+	~WrongCat();
 
 	// Operator overload
-	Cat &operator=(const Cat &copy);
+	WrongCat &operator=(const WrongCat &copy);
 
-	void makeSound();
 	std::string getType();
 };
 
