@@ -55,8 +55,8 @@ std::string Dog::getType()
 
 void Dog::memCheck(const Dog &copy)
 {
-	std::cout << std::setw(CHECKER_WIDTH) << "address of brain: " << &this->brain << std::endl;
-	std::cout << std::setw(CHECKER_WIDTH) << "address of new brain: " << &copy.brain << std::endl;
+	std::cout << std::setw(CHECKER_WIDTH) << "address of brain: " << &copy.brain << std::endl;
+	std::cout << std::setw(CHECKER_WIDTH) << "address of new brain: " << &this->brain << std::endl;
 }
 
 Brain *Dog::getBrain(void) const
