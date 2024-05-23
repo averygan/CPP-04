@@ -17,7 +17,7 @@
 #include <iostream>
 #include <iomanip>
 
-#define IDEAS_COUNT 2
+#define IDEAS_COUNT 100
 #define CHECKER_WIDTH 22
 
 /* Brain class - array of 100 std::string ideas */

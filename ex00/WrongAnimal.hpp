@@ -27,7 +27,6 @@ public:
 	// Operator overload
 	WrongAnimal &operator=(const WrongAnimal &copy);
 
-	// Pure virtual function
 	void makeSound();
 	std::string getType();
 

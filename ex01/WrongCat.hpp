@@ -27,6 +27,7 @@ public:
 	WrongCat &operator=(const WrongCat &copy);
 
 	std::string getType();
+	void makeSound();
 };
 
 #endif
