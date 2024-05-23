@@ -17,7 +17,7 @@
 #include <iostream>
 #include <string>
 
-#define INV_COUNT 4
+# define INV_COUNT 4
 
 class Character : public ICharacter
 {

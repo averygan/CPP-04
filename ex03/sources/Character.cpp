@@ -89,18 +89,18 @@ void Character::unequip(int idx)
 {
 	if (idx < 0 || idx >= INV_COUNT)
 	{
-		std::cout << "unable to unequip as index is invalid" << std::endl;
+		std::cout << RED << "unable to unequip as index is invalid" << RESET << std::endl;
 		return ;
 	}
 	if (this->inventory[idx] != NULL)
 	{
-		std::cout << this->name << " unequipped AMateria " \
-			<< inventory[idx]->getType() << " from slot " << idx << std::endl;
+		std::cout << GREEN << this->name << " unequipped AMateria " \
+			<< inventory[idx]->getType() << " from slot " << idx << RESET << std::endl;
 		this->inventory[idx] = 0;
 	}
 	else
-		std::cout << this->name << " was unable to unequip as slot " << \
-		idx << " is empty" << std::endl;
+		std::cout << RED << this->name << " was unable to unequip as slot " << \
+		idx << " is empty" << RESET << std::endl;
 }
 
 /* Use materia at slot[idx] */
@@ -108,25 +108,25 @@ void Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx >= INV_COUNT)
 	{
-		std::cout << "unable to use as index is invalid" << std::endl;
+		std::cout << RED << "unable to use as index is invalid" << RESET << std::endl;
 		return ;
 	}
 	if (this->inventory[idx] != NULL)
 	{
-		std::cout << this->name << "used AMateria " << \
-			inventory[idx]->getType() << " at slot " << idx << std::endl;
+		std::cout << GREEN << this->name << " used AMateria " << \
+			inventory[idx]->getType() << " at slot " << idx << RESET << std::endl;
 		this->inventory[idx]->use(target);
 	}
 	else
-		std::cout << this->name << " was unable to use Amateria as slot " << idx << \
-		" is empty" << std::endl;
+		std::cout << RED << this->name << " was unable to use Amateria as slot " << idx << \
+		" is empty" << RESET << std::endl;
 }
 
 AMateria *Character::getMateria(int idx)
 {
 	if (idx < 0 || idx >= INV_COUNT)
 	{
-		std::cout << "unable to get materia as index is invalid" << std::endl;
+		std::cout << RED << "unable to get materia as index is invalid" << RESET << std::endl;
 		return 0;
 	}
 	return this->inventory[idx];

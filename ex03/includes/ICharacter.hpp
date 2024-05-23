@@ -17,6 +17,14 @@
 #include <string>
 #include "AMateria.hpp"
 
+# define BROWN "\033[1;33m"
+# define RED "\033[1;31m"
+# define GREEN "\033[1;32m"
+# define YELLOW	"\e[33m"
+# define BLUE	"\e[34m"
+# define CYAN	"\e[36m"
+# define RESET "\033[0m"
+
 class AMateria;
 
 class ICharacter

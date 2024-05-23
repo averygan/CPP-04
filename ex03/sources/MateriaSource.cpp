@@ -50,7 +50,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &copy)
 	return *this;
 }
 
-/* Copies the Materia passed as a parameter and store it in memory so it can be cloned
+/* copies the Materia passed as a parameter and store it in memory so it can be cloned
 later */
 void MateriaSource::learnMateria(AMateria* m)
 {
@@ -58,11 +58,12 @@ void MateriaSource::learnMateria(AMateria* m)
 	{
 		if (!this->inventory[i])
 		{
+			std::cout << GREEN << "materiasource learnt " << m->getType() << RESET << std::endl;
 			this->inventory[i] = m;
 			return ;
 		}
 	}
-	std::cout << "MateriaSource inventory full" << std::endl;
+	std::cout << RED << "MateriaSource inventory full" << RESET << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
@@ -70,8 +71,12 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	for (int i = 0; i < INV_COUNT; i++)
 	{
 		if (this->inventory[i] != NULL && this->inventory[i]->getType() == type)
+		{
+			std::cout << GREEN << "created " << this->inventory[i]->getType() << \
+				" materia from materiasource" << RESET << std::endl;
 			return (this->inventory[i]->clone());
+		}
 	}
-	std::cout << "MateriaSource type does not match" << std::endl;	
+	std::cout << RED << "MateriaSource type does not match" << RESET << std::endl;	
 	return (NULL);
 }

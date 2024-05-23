@@ -50,5 +50,5 @@ std::string const & AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-	std::cout << "Typeless Materia used on " << target.getName() << std::endl;
+	std::cout << GREEN << "Typeless Materia used on " << target.getName() << RESET << std::endl;
 }
