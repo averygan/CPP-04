@@ -20,10 +20,10 @@ Cat::Cat() : Animal()
 	std::cout << "Cat constructor called!" << std::endl;
 }
 
-Cat::Cat(const Cat &copy) : Animal()
+Cat::Cat(const Cat &copy) : Animal(copy)
 {
-	*this = copy;
 	std::cout << "Cat copy constructor called!" << std::endl;
+	this->brain = new Brain(*copy.getBrain());
 	// this->memCheck(copy);
 }
 
@@ -37,6 +37,8 @@ Cat::~Cat()
 // Overloaded operator
 Cat &Cat::operator=(const Cat &copy)
 {
+	if (this == &copy)
+		return *this;
 	this->type = copy.type;
 	this->brain = new Brain();
 	*(this->brain) = *(copy.brain);	
@@ -58,4 +60,9 @@ void Cat::memCheck(const Cat &copy)
 {
 	std::cout << std::setw(CHECKER_WIDTH) << "address of brain: " << &this->brain << std::endl;
 	std::cout << std::setw(CHECKER_WIDTH) << "address of new brain: " << &copy.brain << std::endl;
+}
+
+Brain *Cat::getBrain(void) const
+{
+	return this->brain;
 }

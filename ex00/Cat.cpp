@@ -19,9 +19,8 @@ Cat::Cat() : Animal()
 	std::cout << "Cat constructor called!" << std::endl;
 }
 
-Cat::Cat(const Cat &copy) : Animal()
+Cat::Cat(const Cat &copy) : Animal(copy)
 {
-	*this = copy;
 	std::cout << "Cat copy constructor called!" << std::endl;
 }
 
@@ -34,6 +33,8 @@ Cat::~Cat()
 // Overloaded operator
 Cat &Cat::operator=(const Cat &copy)
 {
+	if (this == &copy)
+		return *this;
 	this->type = copy.type;
 	std::cout << "Cat Copy Assignment Operator called" << std::endl;
 	return *this;

@@ -30,6 +30,8 @@ WrongAnimal::~WrongAnimal()
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &copy)
 {
+	if (this == &copy)
+		return *this;
 	this->type = copy.type;
 	std::cout << "WrongAnimal Copy Assignment Operator called" << std::endl;
 	return *this;

@@ -19,9 +19,8 @@ WrongCat::WrongCat() : WrongAnimal()
 	std::cout << "WrongCat constructor called!" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal()
+WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal(copy)
 {
-	*this = copy;
 	std::cout << "WrongCat copy constructor called!" << std::endl;
 }
 
@@ -34,6 +33,8 @@ WrongCat::~WrongCat()
 // Overloaded operator
 WrongCat &WrongCat::operator=(const WrongCat &copy)
 {
+	if (this == &copy)
+		return *this;
 	this->type = copy.type;
 	std::cout << "WrongCat Copy Assignment Operator called" << std::endl;
 	return *this;

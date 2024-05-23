@@ -19,10 +19,10 @@ Dog::Dog() : Animal()
 	std::cout << "Dog constructor called!" << std::endl;
 }
 
-Dog::Dog(const Dog &copy) : Animal()
+Dog::Dog(const Dog &copy) : Animal(copy)
 {
-	*this = copy;
 	std::cout << "Dog copy constructor called!" << std::endl;
+	this->brain = new Brain(*copy.getBrain());
 	// this->memCheck(copy);
 }
 
@@ -34,6 +34,8 @@ Dog::~Dog()
 
 Dog &Dog::operator=(const Dog &copy)
 {
+	if (this == &copy)
+		return *this;
 	this->type = copy.type;
 	this->brain = new Brain();
 	*(this->brain) = *(copy.brain);
@@ -55,4 +57,9 @@ void Dog::memCheck(const Dog &copy)
 {
 	std::cout << std::setw(CHECKER_WIDTH) << "address of brain: " << &this->brain << std::endl;
 	std::cout << std::setw(CHECKER_WIDTH) << "address of new brain: " << &copy.brain << std::endl;
+}
+
+Brain *Dog::getBrain(void) const
+{
+	return this->brain;
 }

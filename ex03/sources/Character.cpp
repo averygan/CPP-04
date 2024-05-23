@@ -23,6 +23,10 @@ Character::Character() : name("nameless")
 
 Character::Character(const std::string name) : name(name)
 {
+	for (int i = 0; i < INV_COUNT; i++)
+	{
+		this->inventory[i] = 0;
+	}
 	// std::cout << "Character name constructor called" << std::endl;	
 }
 
@@ -30,7 +34,7 @@ Character::~Character()
 {
 	for (int i = 0; i < INV_COUNT; i++)
 	{
-		if (this->inventory[i])
+		if (this->inventory[i] != NULL)
 			delete this->inventory[i];
 	}
 	// std::cout << "Character destructor called" << std::endl;	
@@ -41,7 +45,7 @@ Character::Character(const Character &copy) : name(copy.getName())
 	// this->name = copy.getName();
 	for (int i = 0; i < INV_COUNT; i++)
 	{
-		if (copy.inventory[i] != 0)
+		if (copy.inventory[i] != NULL)
 			this->inventory[i] = copy.inventory[i]->clone();
 	}
 	// std::cout << "Character copy constructor called" << std::endl;	
@@ -49,12 +53,14 @@ Character::Character(const Character &copy) : name(copy.getName())
 
 Character &Character::operator=(const Character &copy)
 {
+	if (this == &copy)
+		return *this;
 	// std::cout << "Character copy assignment operator called" << std::endl;
 	for (int i = 0; i < INV_COUNT; i++)
 	{
-		if (this->inventory[i])
+		if (this->inventory[i] != NULL)
 			delete this->inventory[i];
-		if (copy.inventory[i])
+		if (copy.inventory[i] != NULL)
 			this->inventory[i] = copy.inventory[i]->clone();
 	}
 	return *this;
@@ -81,15 +87,47 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if (this->inventory[idx])
+	if (idx < 0 || idx >= INV_COUNT)
+	{
+		std::cout << "unable to unequip as index is invalid" << std::endl;
+		return ;
+	}
+	if (this->inventory[idx] != NULL)
+	{
+		std::cout << this->name << " unequipped AMateria " \
+			<< inventory[idx]->getType() << " from slot " << idx << std::endl;
 		this->inventory[idx] = 0;
+	}
+	else
+		std::cout << this->name << " was unable to unequip as slot " << \
+		idx << " is empty" << std::endl;
 }
 
 /* Use materia at slot[idx] */
 void Character::use(int idx, ICharacter& target)
 {
-	if (this->inventory[idx])
+	if (idx < 0 || idx >= INV_COUNT)
 	{
+		std::cout << "unable to use as index is invalid" << std::endl;
+		return ;
+	}
+	if (this->inventory[idx] != NULL)
+	{
+		std::cout << this->name << "used AMateria " << \
+			inventory[idx]->getType() << " at slot " << idx << std::endl;
 		this->inventory[idx]->use(target);
 	}
+	else
+		std::cout << this->name << " was unable to use Amateria as slot " << idx << \
+		" is empty" << std::endl;
+}
+
+AMateria *Character::getMateria(int idx)
+{
+	if (idx < 0 || idx >= INV_COUNT)
+	{
+		std::cout << "unable to get materia as index is invalid" << std::endl;
+		return 0;
+	}
+	return this->inventory[idx];
 }

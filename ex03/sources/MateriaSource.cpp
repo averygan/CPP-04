@@ -23,6 +23,11 @@ MateriaSource::MateriaSource() : IMateriaSource()
 
 MateriaSource::~MateriaSource()
 {
+	for (int i = 0; i < INV_COUNT; i++)
+	{
+		if (this->inventory[i] != NULL)
+			delete this->inventory[i];
+	}
 	// std::cout << "MateriaSource destructor called" << std::endl;	
 }
 
@@ -64,7 +69,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	for (int i = 0; i < INV_COUNT; i++)
 	{
-		if (this->inventory[i] && this->inventory[i]->getType() == type)
+		if (this->inventory[i] != NULL && this->inventory[i]->getType() == type)
 			return (this->inventory[i]->clone());
 	}
 	std::cout << "MateriaSource type does not match" << std::endl;	

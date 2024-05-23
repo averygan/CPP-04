@@ -30,6 +30,7 @@ public:
 	void makeSound();
 	std::string getType();
 	void memCheck(const Cat &copy);
+	Brain *getBrain(void) const;
 
 private:
 	Brain *brain;
