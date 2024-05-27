@@ -40,7 +40,7 @@ std::string Animal::getType()
 	return (this->type);
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
 	std::cout << "😰: Animal sound..." << std::endl;
 }

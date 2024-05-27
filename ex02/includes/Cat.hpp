@@ -27,7 +27,7 @@ public:
 	// Operator overload
 	Cat &operator=(const Cat &copy);
 
-	void makeSound();
+	void makeSound() const;
 	std::string getType();
 	void memCheck(const Cat &copy);
 	Brain *getBrain(void) const;

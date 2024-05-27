@@ -34,7 +34,7 @@ public:
 
 	// Operator overload
 	Animal &operator=(const Animal &copy);
-	virtual void makeSound() = 0;
+	virtual void makeSound() const = 0;
 	virtual std::string getType();
 
 protected:

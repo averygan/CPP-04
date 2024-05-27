@@ -27,7 +27,7 @@ public:
 	// Operator overload
 	Dog &operator=(const Dog &copy);
 
-	void makeSound();
+	void makeSound() const;
 	std::string getType();
 	void memCheck(const Dog &copy);
 	Brain *getBrain(void) const;
