@@ -30,7 +30,7 @@ public:
 	MateriaSource &operator=(const MateriaSource &copy);
 
 	void learnMateria(AMateria*);
-	AMateria* createMateria(std::string const & type);
+	AMateria* createMateria(std::string const &type);
 
 private:
 	AMateria *inventory[INV_COUNT];

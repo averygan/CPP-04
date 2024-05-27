@@ -34,6 +34,7 @@ void amateria_tester()
 
 int main()
 {
+	// Provided by subject
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -49,6 +50,24 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+
+	std::cout << std::endl << \
+		"-----------------" << "testing clone function" << "-----------------" << std::endl;
+	// Tester for clone function 
+	Ice *iceOne = new Ice();
+	AMateria *materia = iceOne->clone();
+	Character *avery = new Character("avery");
+	Character *joe = new Character("joe");
+	avery->equip(materia);
+	avery->use(0, *joe);
+	avery->unequip(0);
+	delete(avery);
+	delete(joe);
+	delete(materia);
+
+	std::cout << std::endl << \
+		"-----------------" << "testing unequip function" << "-----------------" << std::endl;
+	// Test Amateria
 	amateria_tester();
 	return 0;
 }

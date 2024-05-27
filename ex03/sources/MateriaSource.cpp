@@ -66,7 +66,7 @@ void MateriaSource::learnMateria(AMateria* m)
 	std::cout << RED << "MateriaSource inventory full" << RESET << std::endl;
 }
 
-AMateria* MateriaSource::createMateria(std::string const & type)
+AMateria* MateriaSource::createMateria(std::string const &type)
 {
 	for (int i = 0; i < INV_COUNT; i++)
 	{
