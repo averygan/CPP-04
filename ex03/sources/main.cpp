@@ -61,6 +61,7 @@ int main()
 	avery->equip(materia);
 	avery->use(0, *joe);
 	avery->unequip(0);
+	delete(iceOne);
 	delete(avery);
 	delete(joe);
 	delete(materia);
