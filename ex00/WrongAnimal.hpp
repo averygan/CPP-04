@@ -13,8 +13,8 @@
 #ifndef __WRONGANIMAL_HPP__
 #define __WRONGANIMAL_HPP__
 
-#include "string"
-#include "iostream"
+#include <string>
+#include <iostream>
 
 class WrongAnimal
 {

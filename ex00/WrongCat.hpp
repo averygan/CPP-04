@@ -14,6 +14,8 @@
 #define __WRONGCAT_HPP__
 
 #include "WrongAnimal.hpp"
+#include <string>
+#include <iostream>
 
 class WrongCat : public WrongAnimal
 {

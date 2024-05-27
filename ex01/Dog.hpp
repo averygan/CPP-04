@@ -15,6 +15,8 @@
 
 #include "Animal.hpp"
 #include "Brain.hpp"
+#include <string>
+#include <iostream>
 
 class Dog : public Animal
 {
